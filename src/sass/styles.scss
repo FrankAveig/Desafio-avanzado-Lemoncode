@@ -1,4 +1,5 @@
 @use './variables' as v;
+@use './mixins' as m;
 
 body {
   background-color: v.$background-color;
@@ -23,8 +24,15 @@ body {
     gap: 1rem;
     cursor: pointer;
     transition: all 0.3s ease;
-    &:hover{
-        transform: scale(1.1);
+    @include m.hover-scale;
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+    .platform-title{
+        @media screen and (max-width: 1024px) {
+            display: none;
+        }
     }
     &-image {
       width: 80px;
@@ -52,9 +60,7 @@ body {
     cursor: pointer;
     font-size: 1rem;
     transition: all 0.3s ease;
-    &:hover{
-        transform: scale(1.1);
-    }
+    @include m.hover-scale;
   }
 
 }
@@ -73,6 +79,9 @@ body {
             font-weight: 700;
             font-size: 2rem;
             position: relative;
+            @media screen and (max-width: 1024px) {
+                content:'3';
+            }
         }
     }
     .top{
@@ -91,6 +100,24 @@ body {
                 height: auto;
                 object-fit: cover;
             }
+            @include m.hover-scale(1.05);
+        }
+        @media screen and (max-width: 1024px) {
+            justify-content: start;
+            &-item{
+                width: 33%;
+            }
+            &-item:nth-child(1), &-item:nth-child(2){
+                display: none;
+            }
+        }
+        @media screen and (max-width: 768px) {
+            flex-direction: column-reverse;
+            gap: 20px;
+            &-item{
+                width: 50%;
+            }
+
         }
     }
     .first, .second {
@@ -169,6 +196,7 @@ body {
                     justify-content: center;
                     cursor: pointer;
                     transition: all 0.2s ease;
+                    @include m.hover-scale;
 
                     i {
                         font-size: 0.7rem;
@@ -182,9 +210,9 @@ body {
             }
 
             &:hover {
-                width: calc(100% / 5);
-                
+                transform: scale(1.1);
                 z-index: 10;
+
 
                 .item-content {
                     opacity: 1;
@@ -193,7 +221,29 @@ body {
                 img {
                     box-shadow: 0 0 15px rgba(0,0,0,0.5);
                 }
+                @media screen and (max-width: 1024px) {
+                    transform: scale(1.05); 
+                }
+            }
+            @media screen and (max-width: 1024px) {
+                width: calc(100% / 4.2);
+                min-width: 250px;
+            }
+            @media screen and (max-width: 768px) {
+                width: calc(100% / 2.08);
+            }
+            @media screen and (max-width: 520px) {
+                width: calc(100% / 1.08);
             }
         }
+        @media screen and (max-width: 1024px) {
+            flex-wrap: wrap;
+            height: auto;
+            
+        }
+        @media screen and (max-width: 520px) {
+            gap: 20px;
+        }
+
     }
 }

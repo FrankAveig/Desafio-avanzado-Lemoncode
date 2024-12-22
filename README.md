@@ -2,9 +2,7 @@
 
 ## Breakpoints
 
-El diseño es responsive y se adapta a diferentes tamaños de pantalla en los siguientes breakpoints:
-
-### Desktop First
+El diseño se adapta a diferentes tamaños de pantalla en los siguientes breakpoints:
 
 - **1024px**:
 
@@ -15,15 +13,9 @@ El diseño es responsive y se adapta a diferentes tamaños de pantalla en los si
 
 - **768px**:
 
-  - Top: Cambia a 2 items por fila
+  - Top: Cambia a 1 items por fila
   - Cards: Cambian a 2 items por fila
 
 - **520px**:
   - Cards: 1 item por fila
   - Aumenta el espaciado entre cards
-
-## Tecnologías
-
-- HTML5
-- SASS
-- Vite
